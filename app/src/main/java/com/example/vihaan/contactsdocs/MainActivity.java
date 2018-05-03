@@ -2,6 +2,7 @@ package com.example.vihaan.contactsdocs;
 
 import android.annotation.SuppressLint;
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -19,8 +20,7 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements
         AdapterView.OnItemClickListener,
-        android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor>
-{
+        android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor> {
 
 
     @Override
@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements
          * You can use mContactUri as the content URI for retrieving
          * the details for a contact.
          */
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.KEY_LOOKUP_KEY, mContactKey);
+        startActivity(intent);
     }
 
     /*
@@ -107,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements
                     ContactsContract.Contacts.DISPLAY_NAME_PRIMARY + " LIKE ?" :
                     ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?";
     // Defines a variable for the search string
-    private String mSearchString ="";
+    private String mSearchString = "";
     // Defines the array to hold values that replace the ?
     private String[] mSelectionArgs = {mSearchString};
 
