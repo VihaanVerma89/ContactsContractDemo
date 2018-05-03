@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements
                     ContactsContract.Contacts.DISPLAY_NAME_PRIMARY :
                     ContactsContract.Contacts.DISPLAY_NAME
     };
+
+
     /*
      * Defines an array that contains resource ids for the layout views
      * that get the Cursor column contents. The id is pre-defined in
